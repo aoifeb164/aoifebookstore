@@ -1,4 +1,9 @@
 <?php
+# @Date:   2020-11-03T10:21:46+00:00
+# @Last modified time: 2020-11-06T14:08:25+00:00
+
+
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user.home');
