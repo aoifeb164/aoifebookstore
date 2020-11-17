@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-06T13:54:28+00:00
-# @Last modified time: 2020-11-06T15:05:24+00:00
+# @Last modified time: 2020-11-17T18:07:33+00:00
 
 
 
@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
+
 
     }
 
