@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in as an admin <a href="{{ route('admin.books.index') }}">Books</a>
+                     <a>You are logged in as an admin</a>
                 </div>
             </div>
         </div>
