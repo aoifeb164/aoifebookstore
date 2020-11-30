@@ -40,7 +40,7 @@
               <td>
                 <a href="{{ route('admin.books.show', $book->id) }}" class="btn btn-primary">View</a>
                 <a href="{{ route('admin.books.edit', $book->id) }}" class="btn btn-warning">Edit</a>
-                <form style="display:inline-block" method="POST" action="{{ route('admin.books.destroy', $book->id ) }}">
+                <form style="display:inline-block" method="POST" action="{{ route ('admin.books.destroy', $book->id ) }}">
                   <input type="hidden" name="_method" value="DELETE">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <button type="submit" class="form-control btn btn-danger">Delete</a>

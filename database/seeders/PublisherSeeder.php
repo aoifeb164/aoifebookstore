@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-22T14:03:18+00:00
-# @Last modified time: 2020-11-22T14:06:48+00:00
+# @Last modified time: 2020-11-30T15:27:04+00:00
 
 
 
@@ -19,25 +19,8 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        $publisher = new Publisher();
-        $publisher->name = "O'Rielly Media";
-        $publisher->address= "USA";
-        $publisher->save();
-
-        $publisher = new Publisher();
-        $publisher->name = "Wrox Press";
-        $publisher->address= "UK";
-        $publisher->save();
-
-        $publisher = new Publisher();
-        $publisher->name = "New Riders";
-        $publisher->address= "USA";
-        $publisher->save();
-
-        $publisher = new Publisher();
-        $publisher->name = "John Wiley";
-        $publisher->address= "UK";
-        $publisher->save();
-
+      for ($i = 1; $i <=10; $i++) {
+        Publisher::factory()->hasBooks(mt_rand(1,15))->create();  
+      }
     }
 }
