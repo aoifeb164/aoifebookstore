@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-03T10:21:46+00:00
-# @Last modified time: 2020-11-16T15:20:29+00:00
+# @Last modified time: 2020-12-20T18:30:23+00:00
 
 
 
@@ -12,6 +12,9 @@ use App\Http\Controllers\Admin\BookController as AdminBookController;
 
 use App\Http\Controllers\User\HomeController as UserHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+
+use App\Http\Controllers\User\ReviewController as UserReviewController;
+use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +45,8 @@ Route::post('/admin/books/store', [AdminBookController::class, 'store'])->name('
 Route::get('/admin/books/{id}/edit', [AdminBookController::class, 'edit'])->name('admin.books.edit');
 Route::put('/admin/books{id}', [AdminBookController::class, 'update'])->name('admin.books.update');
 Route::delete('/admin/books/{id}', [AdminBookController::class, 'destroy'])->name('admin.books.destroy');
+
+Route::delete('/admin/books/{id}/reviews/{rid}', [AdminReviewController::class, 'destroy'])->name('admin.reviews.destroy');
+
+Route::get('/user/books/{id}/reviews/create', [UserReviewController::class, 'create'])->name('user.reviews.create');
+Route::post('/user/books/{id}/reviews/store', [UserReviewController::class, 'store'])->name('user.reviews.store');

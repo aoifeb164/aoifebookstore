@@ -47,6 +47,22 @@
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <button type="submit" class="form-control btn btn-danger">Delete</a>
                     </form>
+
+                  </br>
+                </br>
+                <h2>
+                  Reviews
+                  <a href="{{ route('user.reviews.create', $book->id) }}" class="btn btn-primary">Add</a>
+                </h2>
+                <ul>
+@if (count($book->reviews) == 0)
+  <p>There are no Reviews</p>
+@else
+  @foreach($book->reviews as $review)
+    <li>{{$review->title}}</li>
+  @endforeach
+@endif
+</ul>
                 </div>
             </div>
         </div>
