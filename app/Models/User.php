@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-03T10:21:46+00:00
-# @Last modified time: 2020-11-17T19:33:39+00:00
+# @Last modified time: 2020-12-14T12:54:45+00:00
 
 
 
@@ -66,5 +66,8 @@ return null !== $this->roles()->whereIn('name', $roles)->first();
 public function hasRole($role)
 {
 return null !== $this->roles()->where('name', $role)->first();
+}
+public function profile(){
+  return $this->belongsTo(User::class);
 }
 }

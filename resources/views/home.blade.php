@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                      You are logged in as a user <a href="{{ route('user.books.index') }}">Books</a>
+                      You are logged in as a user
                 </div>
             </div>
         </div>
