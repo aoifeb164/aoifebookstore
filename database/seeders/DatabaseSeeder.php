@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-03T10:21:46+00:00
-# @Last modified time: 2020-11-30T14:32:17+00:00
+# @Last modified time: 2020-12-20T16:24:26+00:00
 
 
 
@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
       $this->call(UserSeeder::class);
       $this->call(PublisherSeeder::class);
       $this->call(BookSeeder::class);
+      $this->call(ReviewSeeder::class);
     }
 }

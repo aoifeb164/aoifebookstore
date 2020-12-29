@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-06T13:00:54+00:00
-# @Last modified time: 2020-11-30T15:38:56+00:00
+# @Last modified time: 2020-12-29T14:22:13+00:00
 
 
 namespace Database\Seeders;
@@ -38,8 +38,8 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <=3; $i++) {
           $User = User::factory()->create();
           $admin->roles()->attach($role_admin);
-
         }
+
         for ($i = 1; $i <=15; $i++) {
           $User = User::factory()->create();
           $user->roles()->attach($role_user);
