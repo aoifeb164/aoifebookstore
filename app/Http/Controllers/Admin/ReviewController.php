@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-12-20T17:32:39+00:00
-# @Last modified time: 2020-12-20T18:30:41+00:00
+# @Last modified time: 2021-01-07T19:47:26+00:00
 
 
 
@@ -16,7 +16,7 @@ class ReviewController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
-    $this->middleware('role:admin');
+    $this->middleware('role:admin,user');
   }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
