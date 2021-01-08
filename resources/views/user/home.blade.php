@@ -14,8 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in as an ordinary user
+                  </br>
+                    Hi {{Auth::user()->name}}
+                  </br>
+                  Email: {{Auth::user()->email}}
+                </br>
+                Address: {{Auth::user()->customer->address}}
                 </div>
+
             </div>
         </div>
     </div>

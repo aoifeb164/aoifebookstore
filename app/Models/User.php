@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-03T10:21:46+00:00
-# @Last modified time: 2020-12-20T16:33:46+00:00
+# @Last modified time: 2021-01-08T18:24:33+00:00
 
 
 
@@ -49,6 +49,10 @@ class User extends Authenticatable
 public function reviews()
 {
   return $this->hasMany('App\Models\Review');
+}
+public function customer()
+{
+  return $this->hasOne('App\Models\Customer');
 }
 public function roles()
 {
