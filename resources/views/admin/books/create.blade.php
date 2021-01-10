@@ -19,8 +19,13 @@
                 </ul>
               </div>
             @endif
-            <form method="POST" action="{{ route('admin.books.store') }}">
+            <form method="POST" action="{{ route('admin.books.store') }}" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <div class="form_group">
+                <label for="cover">Cover</label>
+                <input type="file" class="form-control" id="cover" name="cover" />
+              </div>
+              <br>
               <div class="form_group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" />
@@ -35,7 +40,7 @@
                 <label for="publisher">Publisher</label>
             <select name="publisher_id">
               @foreach ($publishers as $publisher)
-                <option value ="{{ $publisher->id }}" {{ (old('publisher_id') == $publisher->id) ? "selected" : "" }} >{{ $publisher->name }}</option>             
+                <option value ="{{ $publisher->id }}" {{ (old('publisher_id') == $publisher->id) ? "selected" : "" }} >{{ $publisher->name }}</option>
                @endforeach
               </select>
               </div>

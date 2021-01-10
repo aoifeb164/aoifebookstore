@@ -1,6 +1,6 @@
 <?php
 # @Date:   2020-11-16T11:52:08+00:00
-# @Last modified time: 2020-11-22T14:39:52+00:00
+# @Last modified time: 2021-01-10T16:38:10+00:00
 
 
 
@@ -64,10 +64,18 @@ class BookController extends Controller
         'title' => 'required|max:191',
         'author' => 'required|max:191',
         'publisher_id' => 'required',
+        // 'cover' => 'file|image|dimensions:width=300,height=400',
         'year' => 'required|integer|min:1900',
         'isbn' => 'required|alpha_num|size:13|unique:books,isbn',
         'price' => 'required|numeric|min:0'
       ]);
+
+      // $cover = $request->file('cover');
+      // $extension = $cover->getClientOriginalExtention();
+      // $filename = date('Y-m-d-His') . '_' .  $request->input('isbn') . '_' . $extension;
+      //
+      // $path = $cover->storeAs('public/covers', $filename);
+
       $book = new Book();
       $book->title = $request->input('title');
       $book->author = $request->input('author');
@@ -75,8 +83,11 @@ class BookController extends Controller
       $book->year = $request->input('year');
       $book->isbn = $request->input('isbn');
       $book->price = $request->input('price');
+      // $book->cover = $filename;
 
       $book->save();
+
+      $request->session()->flash('succcess', 'Book added successfully!');
 
       return redirect()->route('admin.books.index');
     }
@@ -126,7 +137,7 @@ class BookController extends Controller
           'author' => 'required|max:191',
           'publisher_id' => 'required',
           'year' => 'required|integer|min:1900',
-          'isbn' => 'required|alpha_num|size:13|unique:books,isbn,' . $book->id,
+          'isbn' => 'required|alpha_num|size:13|unique:books,isbn,' . $id,
           'price' => 'required|numeric|min:0'
         ]);
         $book = Book::findOrFail($id);
@@ -139,6 +150,8 @@ class BookController extends Controller
 
         $book->save();
 
+        $request->session()->flash('info', 'Book edited successfully!');
+
         return redirect()->route('admin.books.index');
     }
 
@@ -148,10 +161,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $book = Book::findOrFail($id);
         $book->delete();
+
+        $request->session()->flash('danger', 'Book deleted successfully!');
 
         return redirect()->route('admin.books.index');
     }
