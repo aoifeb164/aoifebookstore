@@ -93,10 +93,9 @@
                 </div>
                   </div>
                     </div>
-                      </div>
             @yield('content')
         </main>
-    </div>
+      </div>
 </body>
 <script>
 setTimeout(function() {$('.alert').alert('close') }, 3000);
